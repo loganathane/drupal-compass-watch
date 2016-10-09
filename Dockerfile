@@ -1,6 +1,10 @@
 FROM alpine:3.4
 MAINTAINER Loganathane V. loganathane.virassamy@gmail.com
 
+# Create user www-data
+RUN addgroup -g 82 -S www-data && \
+	adduser -u 82 -D -S -G www-data www-data
+    
 # Install packages
 RUN set -ex \
     && apk add --update --no-cache ruby \
